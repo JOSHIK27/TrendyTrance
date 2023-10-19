@@ -1,7 +1,8 @@
 import jwt from "jsonwebtoken";
+import { Request, Response, NextFunction } from "express";
 const secretKey = "This is the server side key";
 
-export const createJwt = (req, res, next) => {
+export const createJwt = (req: Request, res: Response, next: NextFunction) => {
   const { email, password } = req.body;
   const payload = `${email}|${password}`;
   const token = jwt.sign({ payload: payload }, secretKey, { expiresIn: "1h" });
@@ -10,7 +11,7 @@ export const createJwt = (req, res, next) => {
   next();
 };
 
-export const authJwt = (req, res, next) => {
+export const authJwt = (req: Request, res: Response, next: NextFunction) => {
   const authHeaders = req.headers.authorization;
   let token = "";
   if (authHeaders) {
