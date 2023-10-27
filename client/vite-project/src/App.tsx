@@ -1,6 +1,8 @@
-import sample from "./Shopping.gif";
+import Header from "./components/landing/header";
+import "./App.css";
+import "semantic-ui-css/semantic.min.css";
 function App() {
-  return <h1>Hello World !!!</h1>;
+  return <Header />;
 }
 
 export default App;
