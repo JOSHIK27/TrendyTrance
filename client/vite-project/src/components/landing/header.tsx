@@ -2,7 +2,7 @@ import coverpic from "../../../browsing-clothing.jpg";
 function Header() {
   return (
     <div>
-      <div className="bg-cust-one h-10 max-w-[100%] flex justify-between items-center">
+      <div className="bg-temp h-10 max-w-[100%] flex justify-between items-center">
         <div className="flex text-center">
           <h1 className="text-base text-white font-display mx-7 hover:underline cursor-pointer">
             Home
@@ -42,7 +42,7 @@ function Header() {
       </div>
       <div className="relative">
         <img src={coverpic}></img>
-        <button className="bg-cust-two rounded-full w-40 h-14 font-display font-bold absolute top-1/3 right-[600px] hover:scale-125 duration-300">
+        <button className="bg-yellow rounded-full w-40 h-14 font-display font-bold absolute top-1/3 right-[600px] hover:scale-125 duration-300">
           SHOP NOW
         </button>
       </div>
