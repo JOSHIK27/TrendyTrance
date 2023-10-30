@@ -29,6 +29,7 @@
     "tailwindcss-animate": "^1.0.7"
   },
   "devDependencies": {
+    "@svgr/webpack": "^8.1.0",
     "@types/node": "^20.8.9",
     "@types/react": "^18.2.15",
     "@types/react-dom": "^18.2.7",
@@ -39,9 +40,11 @@
     "eslint": "^8.45.0",
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.4.3",
+    "file-loader": "^6.2.0",
     "postcss": "^8.4.31",
     "tailwindcss": "^3.3.5",
     "typescript": "^5.0.2",
-    "vite": "^4.4.5"
+    "vite": "^4.4.5",
+    "vite-plugin-svgr": "^4.1.0"
   }
 }
