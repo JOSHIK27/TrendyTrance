@@ -1,9 +1,8 @@
-import coverpic from "../../../browsing-clothing.jpg";
 import { useNavigate } from "react-router-dom";
-function Header() {
+export default function Nav() {
   const navigate = useNavigate();
   return (
-    <div>
+    <>
       <div className="bg-temp h-10 max-w-[100%] flex justify-between items-center">
         <div className="flex text-center">
           <h1
@@ -57,14 +56,6 @@ function Header() {
           Sale
         </h1>
       </div>
-      <div className="relative">
-        <img src={coverpic}></img>
-        <button className="bg-yellow rounded-full w-40 h-14 font-display font-bold absolute top-1/3 right-[600px] hover:scale-125 duration-300">
-          SHOP NOW
-        </button>
-      </div>
-    </div>
+    </>
   );
 }
-
-export default Header;

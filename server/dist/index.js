@@ -12,7 +12,7 @@ app.use("/user", user_1.default);
 app.get("/", (req, res) => {
     schema_1.users
         .create({
-        user: "Joshik",
+        email: "joshikroshan4021@gmail.com",
         password: "abcde",
     })
         .then(() => {
@@ -22,4 +22,4 @@ app.get("/", (req, res) => {
 app.listen(3000, () => {
     console.log("listening");
 });
-mongoose_1.default.connect("mongodb+srv://joshik21:%40Birami1@cluster0.gau2y9q.mongodb.net/TRENDYTRANCE");
+mongoose_1.default.connect("mongodb+srv://JOSHIK:uVMVjfzYFR0ti1C5@cluster0.yg4wtr8.mongodb.net", { dbName: 'TRENDYTRANCE' });

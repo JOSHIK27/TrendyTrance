@@ -22,5 +22,5 @@ app.listen(3000, () => {
 });
 
 mongoose.connect(
-  "mongodb+srv://joshik21:%40Birami1@cluster0.gau2y9q.mongodb.net/TRENDYTRANCE"
-);
+  "mongodb+srv://JOSHIK:uVMVjfzYFR0ti1C5@cluster0.yg4wtr8.mongodb.net"
+,{dbName: 'TRENDYTRANCE'});

@@ -15,10 +15,14 @@ module.exports = {
       gray: "#8492a6",
       "gray-light": "#d3dce6",
       white: "#FFFFFF",
+      temp2: "#5A6D66",
+      temp3: "#123036"
     },
     fontFamily: {
       sans: ["Graphik", "sans-serif"],
       serif: ["Merriweather", "serif"],
+      atak : ["Atak", "sans-serif"],
+      arial : ["Arial"]
     },
     extend: {
       spacing: {
