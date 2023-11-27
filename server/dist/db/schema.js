@@ -8,5 +8,9 @@ const mongoose_1 = __importDefault(require("mongoose"));
 const userSchema = new mongoose_1.default.Schema({
     email: String,
     password: String,
+    products: [{
+            imageUrl: String,
+            itemCount: Number
+        }]
 });
 exports.users = mongoose_1.default.model("users", userSchema);

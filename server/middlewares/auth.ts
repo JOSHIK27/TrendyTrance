@@ -6,7 +6,6 @@ export const createJwt = (req: Request, res: Response, next: NextFunction) => {
   const { email, password } = req.body;
   const payload = `${email}|${password}`;
   const token = jwt.sign({ payload: payload }, secretKey, { expiresIn: "1h" });
-  console.log(token);
   req.body.token = token;
   next();
 };
