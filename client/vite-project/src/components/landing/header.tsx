@@ -1,6 +1,9 @@
 import coverpic from "../../../browsing-clothing.jpg";
 import { useNavigate } from "react-router-dom";
+import { isLoggedIn } from "../../store/states";
+import { useRecoilState } from "recoil";
 function Header() {
+  const [logIn, setLogIn] = useRecoilState(isLoggedIn);
   const navigate = useNavigate();
   return (
     <div>
@@ -28,10 +31,15 @@ function Header() {
             }}
             className="text-base text-white font-display mx-7 hover:underline cursor-pointer"
           >
-            Login
+            {logIn === true ? "" : "Login"}
           </h1>
-          <h1 className="text-base text-white font-display mx-7 hover:underline cursor-pointer">
-            Sign Up
+          <h1
+            onClick={() => {
+              navigate("/signup");
+            }}
+            className="text-base text-white font-display mx-7 hover:underline cursor-pointer"
+          >
+            {logIn === true ? "Logout" : "Signup"}
           </h1>
         </div>
       </div>
@@ -44,10 +52,20 @@ function Header() {
         >
           Men
         </h1>
-        <h1 className="text-base text-black font-display mx-7 hover:underline cursor-pointer">
+        <h1
+          onClick={() => {
+            navigate("/women");
+          }}
+          className="text-base text-black font-display mx-7 hover:underline cursor-pointer"
+        >
           Women
         </h1>
-        <h1 className="text-base text-black font-display mx-7 hover:underline cursor-pointer">
+        <h1
+          onClick={() => {
+            navigate("/kids");
+          }}
+          className="text-base text-black font-display mx-7 hover:underline cursor-pointer"
+        >
           Kids
         </h1>
         <h1 className="text-base text-black font-display mx-7 hover:underline cursor-pointer">

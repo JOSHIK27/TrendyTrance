@@ -1,6 +1,9 @@
 import { useNavigate } from "react-router-dom";
+import { useRecoilState } from "recoil";
+import { isLoggedIn } from "../../store/states";
 export default function Nav() {
   const navigate = useNavigate();
+  const [logIn, setLogIn] = useRecoilState(isLoggedIn);
   return (
     <>
       <div className="bg-temp h-10 max-w-[100%] flex justify-between items-center">
@@ -29,7 +32,12 @@ export default function Nav() {
           >
             Login
           </h1>
-          <h1 className="text-base text-white font-display mx-7 hover:underline cursor-pointer">
+          <h1
+            onClick={() => {
+              navigate("/signup");
+            }}
+            className="text-base text-white font-display mx-7 hover:underline cursor-pointer"
+          >
             Sign Up
           </h1>
         </div>
@@ -43,10 +51,20 @@ export default function Nav() {
         >
           Men
         </h1>
-        <h1 className="text-base text-black font-display mx-7 hover:underline cursor-pointer">
+        <h1
+          onClick={() => {
+            navigate("/women");
+          }}
+          className="text-base text-black font-display mx-7 hover:underline cursor-pointer"
+        >
           Women
         </h1>
-        <h1 className="text-base text-black font-display mx-7 hover:underline cursor-pointer">
+        <h1
+          onClick={() => {
+            navigate("/kids");
+          }}
+          className="text-base text-black font-display mx-7 hover:underline cursor-pointer"
+        >
           Kids
         </h1>
         <h1 className="text-base text-black font-display mx-7 hover:underline cursor-pointer">

@@ -2,20 +2,12 @@ import express from "express";
 import userRouter from "./routes/user";
 import mongoose, { mongo } from "mongoose";
 import { users } from "./db/schema";
+import cors from "cors";
 const app = express();
 
-app.use("/user", userRouter);
+app.use(cors());
 
-app.get("/", (req, res) => {
-  users
-    .create({
-      email: "joshikroshan4021@gmail.com",
-      password: "abcde",
-    })
-    .then(() => {
-      res.send("successfully added to database collection");
-    });
-});
+app.use("/user", userRouter);
 
 app.listen(3000, () => {
   console.log("listening");
