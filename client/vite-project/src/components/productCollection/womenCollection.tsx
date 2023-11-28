@@ -14,9 +14,14 @@ import w10 from "../../images/women/product_10.png";
 import w11 from "../../images/women/product_11.png";
 import w12 from "../../images/women/product_12.png";
 import { useNavigate } from "react-router-dom";
+import { isLoggedIn } from "../../store/states.tsx";
+import { userId } from "../../store/states.tsx";
+
 export default function Women() {
+  const login = useRecoilValue(isLoggedIn);
   const checkOutValue = useRecoilValue(checkoutAtom);
   const navigate = useNavigate();
+  const uId = useRecoilValue(userId);
   const setCheckOutValue = useSetRecoilState(checkoutAtom);
   const women = [w1, w2, w3, w4, w5, w6, w7, w8, w9, w10, w11, w12];
   return (
@@ -42,8 +47,25 @@ export default function Women() {
                 </select>
                 <button
                   onClick={() => {
-                    setCheckOutValue([...checkOutValue, x]);
-                    navigate("/checkout");
+                    if (!login) {
+                      alert("Please Login");
+                      return;
+                    }
+                    fetch("http://localhost:3000/user/cart", {
+                      method: "post",
+                      headers: {
+                        "Content-Type": "application/json",
+                      },
+                      body: JSON.stringify({ id: uId, imageUrl: x }),
+                    })
+                      .then((x) => {
+                        return x.json();
+                      })
+                      .then((y) => {
+                        console.log(y);
+                        setCheckOutValue(y.products);
+                        navigate("/checkout");
+                      });
                   }}
                   className="bg-temp text-white mt-6 w-[350px] rounded-full w-40 h-14 font-display font-bold hover:bg-temp2"
                 >

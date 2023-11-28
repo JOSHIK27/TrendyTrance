@@ -1,7 +1,8 @@
-import { useRecoilValue } from "recoil";
+import { useRecoilState, useRecoilValue } from "recoil";
 import { checkoutAtom } from "../store/states.tsx";
 export default function CheckOut() {
-  const items = useRecoilValue(checkoutAtom);
+  const [items, setItems] = useRecoilState(checkoutAtom);
+  console.log(items);
   return (
     <div>
       <div className="flex justify-between">
@@ -26,7 +27,20 @@ export default function CheckOut() {
       <div className="h-px pl-20 border-[0.1px] pr-20"></div>
       <div>
         {items.map((x) => {
-          return <img src={x} className="h-[140px] w-[128px]"></img>;
+          if (x.imageUrl == "") return null;
+          return (
+            <div className="flex justify-between">
+              <img src={x.imageUrl} className="h-[140px] w-[128px]"></img>
+              <div className="flex">
+                <div className="font-atak pr-80 font-normal text-[14px] leading-3 pt-16">
+                  - {x.itemCount} +
+                </div>
+                <div className="ont-atak pr-20 font-normal text-[16px] leading-3 pt-16">
+                  {x.itemCount * 20}£
+                </div>
+              </div>
+            </div>
+          );
         })}
       </div>
     </div>

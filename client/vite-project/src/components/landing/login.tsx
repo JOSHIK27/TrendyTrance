@@ -5,8 +5,10 @@ import { isLoggedIn } from "../../store/states";
 import { useRecoilState } from "recoil";
 import { useNavigate } from "react-router-dom";
 import { userId } from "../../store/states";
+import { checkoutAtom } from "../../store/states";
 export default function Login() {
   const [user, setUser] = useRecoilState(loginUserAtom);
+  const [checkout, setCheckOut] = useRecoilState(checkoutAtom);
   const [password, setPassword] = useRecoilState(loginPasswordAtom);
   const [login, isLogin] = useRecoilState(isLoggedIn);
   const [id, setId] = useRecoilState(userId);
@@ -59,6 +61,8 @@ export default function Login() {
                     window.localStorage.setItem("token", token);
                     isLogin(true);
                     setId(token[1]);
+                    setCheckOut(token[2].products);
+                    console.log(checkout);
                     navigate("/");
                   } else {
                     alert("loggin failed");

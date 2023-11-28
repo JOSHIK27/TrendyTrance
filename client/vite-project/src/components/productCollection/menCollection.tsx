@@ -51,17 +51,21 @@ export default function Men() {
                       alert("Please Login");
                       return;
                     }
-                    setCheckOutValue([...checkOutValue, x]);
                     fetch("http://localhost:3000/user/cart", {
                       method: "post",
                       headers: {
                         "Content-Type": "application/json",
                       },
                       body: JSON.stringify({ id: uId, imageUrl: x }),
-                    }).then((x) => {
-                      console.log(x);
-                    });
-                    navigate("/checkout");
+                    })
+                      .then((x) => {
+                        return x.json();
+                      })
+                      .then((y) => {
+                        console.log(y);
+                        setCheckOutValue(y.products);
+                        navigate("/checkout");
+                      });
                   }}
                   className="bg-temp text-white mt-6 w-[350px] rounded-full w-40 h-14 font-display font-bold hover:bg-temp2"
                 >

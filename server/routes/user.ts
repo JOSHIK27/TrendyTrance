@@ -5,9 +5,6 @@ const userRouter = express.Router();
 
 userRouter.use(express.json());
 
-userRouter.get("/login", (req, res) => {
-  res.send("hi from user router");
-});
 
 userRouter.post("/signup", createJwt, (req, res) => {
   const { user, password } = req.body;
@@ -27,7 +24,7 @@ userRouter.post("/login", createJwt,(req, res) => {
     console.log(resp);
     if(resp.length != 0) {
       console.log("success");
-      return res.json([req.body.token, resp[0]._id]);
+      return res.json([req.body.token, resp[0]._id, resp]);
     }
     return res.json(["auth failed"]);
   })
@@ -42,7 +39,6 @@ userRouter.post("/cart", (req, res) => {
   const {id, imageUrl} = req.body;
   users.findById(id).then((resp) => {
     const products = resp?.products
-    console.log(resp);
     let check = false;
     products?.forEach((x) => {
       if(x.imageUrl === imageUrl) {
@@ -55,7 +51,7 @@ userRouter.post("/cart", (req, res) => {
     if(resp) {
       users.findOneAndUpdate(query, resp, {new: true}).then((x) => {
         console.log(x)
-;        res.send("sucessfully added to cart");
+;        res.json(x);
       })
     }
   })
