@@ -2,7 +2,7 @@ import { atom, selector } from "recoil";
 
 export const checkoutAtom = atom({
   key: "textState",
-  default: [] as string[],
+  default: [],
 });
 
 export const getCheckOutState = selector({

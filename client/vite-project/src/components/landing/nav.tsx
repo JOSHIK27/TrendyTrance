@@ -30,7 +30,7 @@ export default function Nav() {
             }}
             className="text-base text-white font-display mx-7 hover:underline cursor-pointer"
           >
-            Login
+            {logIn === true ? "" : "Login"}
           </h1>
           <h1
             onClick={() => {
@@ -38,7 +38,7 @@ export default function Nav() {
             }}
             className="text-base text-white font-display mx-7 hover:underline cursor-pointer"
           >
-            Sign Up
+            {logIn === true ? "Logout" : "Signup"}
           </h1>
         </div>
       </div>

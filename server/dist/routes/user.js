@@ -8,9 +8,6 @@ const auth_1 = require("../middlewares/auth");
 const schema_1 = require("../db/schema");
 const userRouter = express_1.default.Router();
 userRouter.use(express_1.default.json());
-userRouter.get("/login", (req, res) => {
-    res.send("hi from user router");
-});
 userRouter.post("/signup", auth_1.createJwt, (req, res) => {
     const { user, password } = req.body;
     console.log(req.body);
@@ -28,7 +25,7 @@ userRouter.post("/login", auth_1.createJwt, (req, res) => {
         console.log(resp);
         if (resp.length != 0) {
             console.log("success");
-            return res.json([req.body.token, resp[0]._id]);
+            return res.json([req.body.token, resp[0]._id, resp]);
         }
         return res.json(["auth failed"]);
     });
@@ -41,7 +38,6 @@ userRouter.post("/cart", (req, res) => {
     const { id, imageUrl } = req.body;
     schema_1.users.findById(id).then((resp) => {
         const products = resp === null || resp === void 0 ? void 0 : resp.products;
-        console.log(resp);
         let check = false;
         products === null || products === void 0 ? void 0 : products.forEach((x) => {
             if (x.imageUrl === imageUrl) {
@@ -56,7 +52,7 @@ userRouter.post("/cart", (req, res) => {
         if (resp) {
             schema_1.users.findOneAndUpdate(query, resp, { new: true }).then((x) => {
                 console.log(x);
-                res.send("sucessfully added to cart");
+                res.json(x);
             });
         }
     });
