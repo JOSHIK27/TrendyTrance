@@ -5,7 +5,7 @@ import { useRecoilState } from "recoil";
 export default function Signup() {
   const [user, setUser] = useRecoilState(signupUserAtom);
   const [password, setPassword] = useRecoilState(signupPasswordAtom);
-  console.log(user, password);
+
   return (
     <>
       <Nav />
@@ -48,9 +48,13 @@ export default function Signup() {
                   return resp.json();
                 })
                 .then((token) => {
-                  window.localStorage.setItem("token", token);
-                  console.log(token);
-                  alert("added to database");
+                  if (token[0] == "NOT ALLOWED") {
+                    alert("ENTER A VALID INPUT");
+                  } else {
+                    window.localStorage.setItem("token", token);
+                    console.log(token);
+                    alert("added to database");
+                  }
                 });
             }}
             className="absolute left-[65px] mt-4 rounded-full px-12 py-2 bg-temp hover:border-0 text-white hover:bg-cur hover:scale-110 duration-300"

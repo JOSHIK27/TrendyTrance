@@ -24,6 +24,20 @@ export default function Nav() {
           </h1>
         </div>
         <div className="flex justify-between">
+          {logIn === true ? (
+            <img
+              width="20"
+              height="5"
+              src="https://img.icons8.com/ios/50/FFFFFF/shopping-cart--v1.png"
+              alt="shopping-cart--v1"
+              className="cursor-pointer"
+              onClick={() => {
+                navigate("/checkout");
+              }}
+            />
+          ) : (
+            <></>
+          )}
           <h1
             onClick={() => {
               navigate("/login");
@@ -34,6 +48,10 @@ export default function Nav() {
           </h1>
           <h1
             onClick={() => {
+              if (logIn) {
+                setLogIn(false);
+                window.localStorage.setItem("token", "");
+              }
               navigate("/signup");
             }}
             className="text-base text-white font-display mx-7 hover:underline cursor-pointer"

@@ -13,8 +13,12 @@ import k9 from "../../images/kids/product_33.png";
 import k10 from "../../images/kids/product_34.png";
 import k11 from "../../images/kids/product_35.png";
 import k12 from "../../images/kids/product_36.png";
+import { isLoggedIn } from "../../store/states.tsx";
+import { userId } from "../../store/states.tsx";
 import { useNavigate } from "react-router-dom";
 export default function Kids() {
+  const login = useRecoilValue(isLoggedIn);
+  const uId = useRecoilValue(userId);
   const checkOutValue = useRecoilValue(checkoutAtom);
   const setCheckOutValue = useSetRecoilState(checkoutAtom);
   const kids = [k1, k2, k3, k4, k5, k6, k7, k8, k9, k10, k11, k12];
@@ -42,8 +46,25 @@ export default function Kids() {
                 </select>
                 <button
                   onClick={() => {
-                    setCheckOutValue([...checkOutValue, x]);
-                    navigate("/checkout");
+                    if (!login) {
+                      alert("Please Login");
+                      return;
+                    }
+                    fetch("http://localhost:3000/user/cart", {
+                      method: "post",
+                      headers: {
+                        "Content-Type": "application/json",
+                      },
+                      body: JSON.stringify({ id: uId, imageUrl: x }),
+                    })
+                      .then((x) => {
+                        return x.json();
+                      })
+                      .then((y) => {
+                        console.log(y);
+                        setCheckOutValue(y.products);
+                        navigate("/checkout");
+                      });
                   }}
                   className="bg-temp text-white mt-6 w-[350px] rounded-full w-40 h-14 font-display font-bold hover:bg-temp2"
                 >
