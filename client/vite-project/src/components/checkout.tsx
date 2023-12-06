@@ -1,13 +1,20 @@
 import { useRecoilState, useRecoilValue } from "recoil";
 import { checkoutAtom } from "../store/states.tsx";
+import { useNavigate } from "react-router-dom";
 export default function CheckOut() {
   const [items, setItems] = useRecoilState(checkoutAtom);
+  const Navigate = useNavigate();
   console.log(items);
   return (
     <div>
       <div className="flex justify-between">
         <h1 className="pl-20	font-atak font-medium	text-[40px]">Your cart</h1>
-        <h1 className="pr-20 pt-6 font-atak font-normal text-[16px]">
+        <h1
+          onClick={() => {
+            Navigate("/");
+          }}
+          className="pr-20 pt-6 font-atak font-normal text-[16px] cursor-pointer"
+        >
           Continue shopping
         </h1>
       </div>
@@ -30,10 +37,30 @@ export default function CheckOut() {
           if (x.imageUrl == "") return null;
           return (
             <div className="flex justify-between">
-              <img src={x.imageUrl} className="h-[140px] w-[128px]"></img>
+              <img
+                src={x.imageUrl}
+                className="h-[140px] w-[128px] ml-12 mb-2"
+              ></img>
               <div className="flex">
-                <div className="font-atak pr-80 font-normal text-[14px] leading-3 pt-16">
-                  - {x.itemCount} +
+                <div className="flex font-atak pr-80 font-normal text-[14px] leading-3 pt-16">
+                  <div
+                    onClick={() => {
+                      fetch("http://localhost:3000/user/login", {
+                        method: "post",
+                        headers: {
+                          "Content-Type": "application/json",
+                        },
+                      })
+                        .then((resp) => {
+                          return resp.json();
+                        })
+                        .then((token) => {});
+                    }}
+                    className="mr-2"
+                  >
+                    -
+                  </div>
+                  {x.itemCount} <div className="ml-2">+</div>
                 </div>
                 <div className="ont-atak pr-20 font-normal text-[16px] leading-3 pt-16">
                   {x.itemCount * 20}£

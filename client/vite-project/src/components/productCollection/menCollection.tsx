@@ -55,6 +55,9 @@ export default function Men() {
                       method: "post",
                       headers: {
                         "Content-Type": "application/json",
+                        authorization: `Bearer ${localStorage.getItem(
+                          "token"
+                        )}`,
                       },
                       body: JSON.stringify({ id: uId, imageUrl: x }),
                     })

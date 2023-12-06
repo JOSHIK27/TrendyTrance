@@ -12,9 +12,7 @@ export default function Login() {
   const [password, setPassword] = useRecoilState(loginPasswordAtom);
   const [login, isLogin] = useRecoilState(isLoggedIn);
   const [id, setId] = useRecoilState(userId);
-  console.log(user, password);
   const navigate = useNavigate();
-  console.log(id);
   return (
     <>
       <Nav />
@@ -57,15 +55,20 @@ export default function Login() {
                   return resp.json();
                 })
                 .then((token) => {
-                  if (token[0] !== "auth failed") {
-                    window.localStorage.setItem("token", token);
+                  if (
+                    token[0] !== "auth failed" &&
+                    token[0] != "ENTER A VALID INPUT"
+                  ) {
+                    console.log(token[0], token[1], token[2][0].products);
+                    window.localStorage.setItem("token", token[0]);
                     isLogin(true);
                     setId(token[1]);
-                    setCheckOut(token[2].products);
-                    console.log(checkout);
+                    setCheckOut(token[2][0].products);
                     navigate("/");
+                  } else if (token[0] == "ENTER A VALID INPUT") {
+                    alert("ENTER A VALID INPUT");
                   } else {
-                    alert("loggin failed");
+                    alert("Login Failed");
                   }
                 });
             }}

@@ -1,41 +1,54 @@
 import express from "express";
 import { createJwt, authJwt } from "../middlewares/auth";
 import { users } from "../db/schema";
+import {z} from "zod";
 const userRouter = express.Router();
-
 userRouter.use(express.json());
 
+const loginSchema = z.object({
+  user: z.string().email().trim(),
+  password: z.string().min(1).max(10).trim()
+})
 
 userRouter.post("/signup", createJwt, (req, res) => {
   const { user, password } = req.body;
-  console.log(req.body);
-  users.create({email: user, password, products : [{
-    imageUrl : "",
-    itemCount: 0
-  }]}).then((resp) => {
-    console.log("added to db");
-    res.json(req.body.token);
-  })
+  const output = loginSchema.safeParse(req.body);
+  if(output.success) {
+    users.create({email: user, password, products : [{
+      imageUrl : "",
+      itemCount: 0
+    }]}).then((resp) => {
+      console.log("added to db");
+      res.json(req.body.token);
+    })
+  }
+  else {
+    res.json(["NOT ALLOWED"]);
+  }
 });
 
 userRouter.post("/login", createJwt,(req, res) => {
   const {user, password} = req.body;
-  users.find({email: user, password}).then((resp) => {
-    console.log(resp);
-    if(resp.length != 0) {
-      console.log("success");
-      return res.json([req.body.token, resp[0]._id, resp]);
-    }
-    return res.json(["auth failed"]);
-  })
+  const output = loginSchema.safeParse(req.body);
+  console.log(output);
+  if(output.success) {
+    users.find({email: user, password}).then((resp) => {
+      if(resp.length != 0) {
+        return res.json([req.body.token, resp[0]._id, resp]);
+      }
+      return res.json(["auth failed"]);
+    })
+  }
+  else {
+    res.json(["ENTER A VALID INPUT"]);
+  }
 })
 
 userRouter.post("/test", authJwt, (req, res) => {
   res.send("authentication success");
 });
 
-userRouter.post("/cart", (req, res) => {
-  console.log(req.body);
+userRouter.post("/cart",authJwt, (req, res) => {
   const {id, imageUrl} = req.body;
   users.findById(id).then((resp) => {
     const products = resp?.products
@@ -56,6 +69,12 @@ userRouter.post("/cart", (req, res) => {
     }
   })
 
+})
+
+userRouter.get('/', (req, res) => {
+  users.find().then((resp) => {
+    res.json(resp).status(200);
+  })
 })
 
 export default userRouter;

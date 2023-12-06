@@ -10,15 +10,18 @@ const createJwt = (req, res, next) => {
     const { email, password } = req.body;
     const payload = `${email}|${password}`;
     const token = jsonwebtoken_1.default.sign({ payload: payload }, secretKey, { expiresIn: "1h" });
+    console.log(token);
     req.body.token = token;
     next();
 };
 exports.createJwt = createJwt;
 const authJwt = (req, res, next) => {
     const authHeaders = req.headers.authorization;
+    console.log(authHeaders);
     let token = "";
     if (authHeaders) {
         token = authHeaders.split(" ")[1];
+        console.log(token);
     }
     jsonwebtoken_1.default.verify(token, secretKey, (err, payload) => {
         if (err) {
