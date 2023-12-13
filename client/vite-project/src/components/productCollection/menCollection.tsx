@@ -65,6 +65,10 @@ export default function Men() {
                         return x.json();
                       })
                       .then((y) => {
+                        if (y.auth) {
+                          alert("UNAUTHORISED");
+                          return;
+                        }
                         console.log(y);
                         setCheckOutValue(y.products);
                         navigate("/checkout");

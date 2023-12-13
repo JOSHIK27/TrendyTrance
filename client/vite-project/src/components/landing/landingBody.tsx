@@ -4,6 +4,7 @@ import kid from "../../images/kids/product_28.png";
 import earphone from "../../images/earphones/earphones_b_3.webp";
 import headphone from "../../images/headphones/headphones_b_4.webp";
 import watch from "../../images/watches/watch_3.webp";
+import Review from "../subComponents/reviewCard";
 function LandingBody() {
   return (
     <div>
@@ -45,6 +46,16 @@ function LandingBody() {
           Timeless Elegance, Right at Your Wrist
         </h1>
       </div>
+      <div className="bg-rev">
+        <Review />
+      </div>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+        <path
+          fill="#F9A67E"
+          fill-opacity="1"
+          d="M0,160L80,160C160,160,320,160,480,133.3C640,107,800,53,960,58.7C1120,64,1280,128,1360,160L1440,192L1440,0L1360,0C1280,0,1120,0,960,0C800,0,640,0,480,0C320,0,160,0,80,0L0,0Z"
+        ></path>
+      </svg>
     </div>
   );
 }

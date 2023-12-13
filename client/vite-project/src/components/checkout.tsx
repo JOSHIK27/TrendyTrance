@@ -3,6 +3,7 @@ import { checkoutAtom } from "../store/states.tsx";
 import { useNavigate } from "react-router-dom";
 export default function CheckOut() {
   const [items, setItems] = useRecoilState(checkoutAtom);
+  console.log(items);
   const Navigate = useNavigate();
   console.log(items);
   return (

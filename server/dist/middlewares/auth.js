@@ -25,7 +25,7 @@ const authJwt = (req, res, next) => {
     }
     jsonwebtoken_1.default.verify(token, secretKey, (err, payload) => {
         if (err) {
-            res.send("You are unauthorised").status(404);
+            res.json({ auth: "YOU ARE UNAUTHORISED" });
         }
         else {
             next();

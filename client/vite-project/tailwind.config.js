@@ -7,6 +7,8 @@ module.exports = {
       temp: "#136450",
       blue: "#1fb6ff",
       purple: "#7e5bef",
+      wave:"#FAE7C3",
+      rev:"#F9A67E",
       pink: "#ff49db",
       orange: "#ff7849",
       green: "#13ce66",
