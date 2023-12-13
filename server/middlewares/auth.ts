@@ -21,7 +21,7 @@ export const authJwt = (req: Request, res: Response, next: NextFunction) => {
   }
   jwt.verify(token, secretKey, (err, payload) => {
     if (err) {
-      res.send("You are unauthorised").status(404);
+      res.json({auth : "YOU ARE UNAUTHORISED"});
     } else {
       next();
     }

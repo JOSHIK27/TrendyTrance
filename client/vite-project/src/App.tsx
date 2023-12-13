@@ -9,6 +9,7 @@ import Landing from "./components/landing.tsx";
 import Kids from "./components/productCollection/kidsCollection.tsx";
 import Women from "./components/productCollection/womenCollection.tsx";
 import CheckOut from "./components/checkout.tsx";
+import About from "./components/about.tsx";
 function App() {
   return (
     <RecoilRoot>
@@ -20,6 +21,7 @@ function App() {
         <Route path="/women" element={<Women />} />
         <Route path="/kids" element={<Kids />} />
         <Route path="/checkout" element={<CheckOut />} />
+        <Route path="/about" element={<About />} />
       </Routes>
     </RecoilRoot>
   );

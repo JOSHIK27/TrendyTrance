@@ -17,7 +17,12 @@ function Header() {
           >
             Home
           </h1>
-          <h1 className="text-base text-white font-display mx-7 hover:underline cursor-pointer">
+          <h1
+            onClick={() => {
+              navigate("/about");
+            }}
+            className="text-base text-white font-display mx-7 hover:underline cursor-pointer"
+          >
             About
           </h1>
           <h1 className="text-base text-white font-display mx-7 hover:underline cursor-pointer">
