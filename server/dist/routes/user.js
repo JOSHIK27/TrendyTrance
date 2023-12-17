@@ -76,4 +76,50 @@ userRouter.get('/', (req, res) => {
         res.json(resp).status(200);
     });
 });
+userRouter.post('/increment', (req, res) => {
+    const { id, url } = req.body;
+    console.log(id, url);
+    schema_1.users.findById(id).then((resp) => {
+        const n = resp === null || resp === void 0 ? void 0 : resp.products.length;
+        if (n != undefined) {
+            for (let i = 0; i < n; i++) {
+                const m = resp.products[i].itemCount;
+                if (m != undefined && (resp === null || resp === void 0 ? void 0 : resp.products[i].imageUrl) === url) {
+                    resp.products[i].itemCount = m + 1;
+                    console.log("hii");
+                }
+            }
+            const query = { _id: id };
+            if (resp) {
+                schema_1.users.findOneAndUpdate(query, resp, { new: true }).then((x) => {
+                    console.log(x);
+                    res.json(x);
+                });
+            }
+        }
+    });
+});
+userRouter.post('/decrement', (req, res) => {
+    const { id, url } = req.body;
+    console.log(id, url);
+    schema_1.users.findById(id).then((resp) => {
+        const n = resp === null || resp === void 0 ? void 0 : resp.products.length;
+        if (n != undefined) {
+            for (let i = 0; i < n; i++) {
+                const m = resp.products[i].itemCount;
+                if (m != undefined && (resp === null || resp === void 0 ? void 0 : resp.products[i].imageUrl) === url && m != 0) {
+                    resp.products[i].itemCount = m - 1;
+                    console.log("hii");
+                }
+            }
+            const query = { _id: id };
+            if (resp) {
+                schema_1.users.findOneAndUpdate(query, resp, { new: true }).then((x) => {
+                    console.log(x);
+                    res.json(x);
+                });
+            }
+        }
+    });
+});
 exports.default = userRouter;

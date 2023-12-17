@@ -1,11 +1,11 @@
 import { useRecoilState, useRecoilValue } from "recoil";
 import { checkoutAtom } from "../store/states.tsx";
 import { useNavigate } from "react-router-dom";
+import { userId } from "../store/states.tsx";
 export default function CheckOut() {
   const [items, setItems] = useRecoilState(checkoutAtom);
-  console.log(items);
+  const [id, setId] = useRecoilState(userId);
   const Navigate = useNavigate();
-  console.log(items);
   return (
     <div>
       <div className="flex justify-between">
@@ -35,6 +35,7 @@ export default function CheckOut() {
       <div className="h-px pl-20 border-[0.1px] pr-20"></div>
       <div>
         {items.map((x) => {
+          console.log(x);
           if (x.imageUrl == "") return null;
           return (
             <div className="flex justify-between">
@@ -46,22 +47,51 @@ export default function CheckOut() {
                 <div className="flex font-atak pr-80 font-normal text-[14px] leading-3 pt-16">
                   <div
                     onClick={() => {
-                      fetch("http://localhost:3000/user/login", {
+                      fetch("http://localhost:3000/user/decrement", {
                         method: "post",
                         headers: {
                           "Content-Type": "application/json",
                         },
+                        body: JSON.stringify({
+                          id: id,
+                          url: x.imageUrl,
+                        }),
                       })
                         .then((resp) => {
                           return resp.json();
                         })
-                        .then((token) => {});
+                        .then((x) => {
+                          setItems(x.products);
+                        });
                     }}
-                    className="mr-2"
+                    className="mr-2 cursor-pointer"
                   >
                     -
                   </div>
-                  {x.itemCount} <div className="ml-2">+</div>
+                  {x.itemCount}{" "}
+                  <div
+                    className="ml-2 cursor-pointer"
+                    onClick={() => {
+                      fetch("http://localhost:3000/user/increment", {
+                        method: "post",
+                        headers: {
+                          "Content-Type": "application/json",
+                        },
+                        body: JSON.stringify({
+                          id: id,
+                          url: x.imageUrl,
+                        }),
+                      })
+                        .then((resp) => {
+                          return resp.json();
+                        })
+                        .then((x) => {
+                          setItems(x.products);
+                        });
+                    }}
+                  >
+                    +
+                  </div>
                 </div>
                 <div className="ont-atak pr-20 font-normal text-[16px] leading-3 pt-16">
                   {x.itemCount * 20}£

@@ -1,6 +1,6 @@
 export default function Review() {
   return (
-    <div className="flex justify-center">
+    <div className="flex justify-center flex-wrap">
       <div className="h-[420px] w-[300px] bg-white m-8 rounded-xl">
         <img
           className="rounded-full h-32 w-32 ml-24 mt-8"
