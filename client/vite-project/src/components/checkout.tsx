@@ -1,4 +1,4 @@
-import { useRecoilState, useRecoilValue } from "recoil";
+import { useRecoilState } from "recoil";
 import { checkoutAtom } from "../store/states.tsx";
 import { useNavigate } from "react-router-dom";
 import { userId } from "../store/states.tsx";

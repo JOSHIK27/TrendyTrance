@@ -1,8 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import { isLoggedIn } from "../store/states";
-import { useState } from "react";
 import aim from "../ui/illustrations/Milestones of business projects-bro.png";
-import Review from "./subComponents/reviewCard";
 import Footer from "./landing/footer";
 import { useRecoilState } from "recoil";
 export default function About() {

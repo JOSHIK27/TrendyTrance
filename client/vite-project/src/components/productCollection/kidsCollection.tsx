@@ -19,7 +19,6 @@ import { useNavigate } from "react-router-dom";
 export default function Kids() {
   const login = useRecoilValue(isLoggedIn);
   const uId = useRecoilValue(userId);
-  const checkOutValue = useRecoilValue(checkoutAtom);
   const setCheckOutValue = useSetRecoilState(checkoutAtom);
   const arr = [k1, k2, k3, k4, k5, k6, k7, k8, k9, k10, k11, k12];
   const navigate = useNavigate();
