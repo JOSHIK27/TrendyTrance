@@ -10,6 +10,8 @@ import Kids from "./components/productCollection/kidsCollection.tsx";
 import Women from "./components/productCollection/womenCollection.tsx";
 import CheckOut from "./components/checkout.tsx";
 import About from "./components/about.tsx";
+import HeadPhones from "./components/productCollection/headphonesCollection.tsx";
+import Contact from "./components/contact.tsx";
 function App() {
   return (
     <RecoilRoot>
@@ -18,10 +20,12 @@ function App() {
         <Route path="/men" element={<Men />} />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
+        <Route path="/headphones" element={<HeadPhones />} />
         <Route path="/women" element={<Women />} />
         <Route path="/kids" element={<Kids />} />
         <Route path="/checkout" element={<CheckOut />} />
         <Route path="/about" element={<About />} />
+        <Route path="/contact" element={<Contact />} />
       </Routes>
     </RecoilRoot>
   );

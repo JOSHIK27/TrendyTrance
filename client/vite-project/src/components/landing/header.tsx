@@ -25,7 +25,12 @@ function Header() {
           >
             About
           </h1>
-          <h1 className="text-base text-white font-display mx-7 hover:underline cursor-pointer">
+          <h1
+            onClick={() => {
+              navigate("/contact");
+            }}
+            className="text-base text-white font-display mx-7 hover:underline cursor-pointer"
+          >
             Contact
           </h1>
         </div>
@@ -56,6 +61,8 @@ function Header() {
             onClick={() => {
               navigate("/signup");
               setLogIn(false);
+              window.localStorage.setItem("token", "");
+              navigate("/signup");
             }}
             className="text-base text-white font-display mx-7 hover:underline cursor-pointer"
           >
@@ -88,8 +95,13 @@ function Header() {
         >
           Kids
         </h1>
-        <h1 className="text-base text-black font-display mx-7 hover:underline cursor-pointer">
-          Brands
+        <h1
+          onClick={() => {
+            navigate("/headphones");
+          }}
+          className="text-base text-black font-display mx-7 hover:underline cursor-pointer"
+        >
+          HeadPhones
         </h1>
         <h1 className="text-base text-black font-display mx-7 hover:underline cursor-pointer">
           Sale
