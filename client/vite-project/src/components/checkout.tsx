@@ -2,12 +2,28 @@ import { useRecoilState, useRecoilValue } from "recoil";
 import { checkoutAtom } from "../store/states.tsx";
 import { useNavigate } from "react-router-dom";
 import { userId } from "../store/states.tsx";
+import { useEffect } from "react";
 export default function CheckOut() {
   const [items, setItems] = useRecoilState(checkoutAtom);
-  console.log(items);
   const [id, setId] = useRecoilState(userId);
   const Navigate = useNavigate();
-  if (window.localStorage.getItem("token") == "") return <h1>Unauthorised</h1>;
+  if (window.localStorage.getItem("token") == null)
+    return <h1>Unauthorised</h1>;
+  useEffect(() => {
+    fetch("http://localhost:3000/user/", {
+      method: "post",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        id: window.localStorage.getItem("id"),
+      }),
+    })
+      .then((x) => x.json())
+      .then((y) => {
+        setItems(y.products);
+      });
+  }, []);
   return (
     <div>
       <div className="flex justify-between">
@@ -37,7 +53,6 @@ export default function CheckOut() {
       <div className="h-px pl-20 border-[0.1px] pr-20"></div>
       <div>
         {items.map((x) => {
-          console.log(x);
           if (x.imageUrl == "") return null;
           return (
             <div className="flex justify-between">

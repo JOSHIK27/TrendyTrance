@@ -13,11 +13,9 @@ export const createJwt = (req: Request, res: Response, next: NextFunction) => {
 
 export const authJwt = (req: Request, res: Response, next: NextFunction) => {
   const authHeaders = req.headers.authorization;
-  console.log(authHeaders);
   let token = "";
   if (authHeaders) {
     token = authHeaders.split(" ")[1];
-    console.log(token);
   }
   jwt.verify(token, secretKey, (err, payload) => {
     if (err) {

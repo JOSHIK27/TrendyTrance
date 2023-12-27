@@ -12,6 +12,7 @@ import CheckOut from "./components/checkout.tsx";
 import About from "./components/about.tsx";
 import HeadPhones from "./components/productCollection/headphonesCollection.tsx";
 import Contact from "./components/contact.tsx";
+import Earphones from "./components/productCollection/earphones.tsx";
 function App() {
   return (
     <RecoilRoot>
@@ -26,6 +27,7 @@ function App() {
         <Route path="/checkout" element={<CheckOut />} />
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="/earphones" element={<Earphones />} />
       </Routes>
     </RecoilRoot>
   );

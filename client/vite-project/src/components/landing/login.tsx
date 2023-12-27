@@ -59,8 +59,8 @@ export default function Login() {
                     token[0] !== "auth failed" &&
                     token[0] != "ENTER A VALID INPUT"
                   ) {
-                    console.log(token[0], token[1], token[2][0].products);
                     window.localStorage.setItem("token", token[0]);
+                    window.localStorage.setItem("id", token[1]);
                     isLogin(true);
                     setId(token[1]);
                     setCheckOut(token[2][0].products);
