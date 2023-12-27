@@ -1,28 +1,28 @@
-import { checkoutAtom } from "../../store/states.tsx";
-import Nav from "../landing/nav.tsx";
+import Nav from "../landing/nav";
 import { useRecoilValue, useSetRecoilState } from "recoil";
-import k1 from "../../images/kids/product_25.png";
-import k2 from "../../images/kids/product_26.png";
-import k3 from "../../images/kids/product_27.png";
-import k4 from "../../images/kids/product_28.png";
-import k5 from "../../images/kids/product_29.png";
-import k6 from "../../images/kids/product_30.png";
-import k7 from "../../images/kids/product_31.png";
-import k8 from "../../images/kids/product_32.png";
-import k9 from "../../images/kids/product_33.png";
-import k10 from "../../images/kids/product_34.png";
-import k11 from "../../images/kids/product_35.png";
-import k12 from "../../images/kids/product_36.png";
-import { isLoggedIn } from "../../store/states.tsx";
-import { userId } from "../../store/states.tsx";
+import { checkoutAtom } from "../../store/states";
+import { isLoggedIn } from "../../store/states";
+import { userId } from "../../store/states";
 import { useNavigate } from "react-router-dom";
-export default function Kids() {
+import m1 from "../../images/earphones/earphones_a_1.png";
+import m2 from "../../images/earphones/earphones_a_2.png";
+import m3 from "../../images/earphones/earphones_a_3.png";
+import m4 from "../../images/earphones/earphones_a_4.png";
+import m5 from "../../images/earphones/earphones_b_1.png";
+import m6 from "../../images/earphones/earphones_b_2.png";
+import m7 from "../../images/earphones/earphones_b_3.png";
+import m8 from "../../images/earphones/earphones_b_4.png";
+import m9 from "../../images/earphones/earphones_c_1.png";
+import m10 from "../../images/earphones/earphones_c_2.png";
+import m11 from "../../images/earphones/earphones_c_3.png";
+import m12 from "../../images/earphones/earphones_c_4.png";
+
+export default function Earphones() {
   const login = useRecoilValue(isLoggedIn);
   const uId = useRecoilValue(userId);
-  const checkOutValue = useRecoilValue(checkoutAtom);
-  const setCheckOutValue = useSetRecoilState(checkoutAtom);
-  const arr = [k1, k2, k3, k4, k5, k6, k7, k8, k9, k10, k11, k12];
   const navigate = useNavigate();
+  const setCheckOutValue = useSetRecoilState(checkoutAtom);
+  const arr = [m1, m2, m3, m4, m5, m6, m7, m8, m9, m10, m11, m12];
   return (
     <>
       <Nav />
@@ -30,7 +30,7 @@ export default function Kids() {
         {arr.map((x) => {
           return (
             <div className="mx-16">
-              <img src={x}></img>
+              <img src={x} className="h-[350px] w-[350px]"></img>
               <div className="bg-slate-600 w-[350px] h-96">
                 <h1 className="!mt-4 mb-4">The Winter Hoodie</h1>
                 <h1 className="text-xl">20.0£ GBP</h1>

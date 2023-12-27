@@ -101,10 +101,15 @@ export default function Nav() {
           }}
           className="text-base text-black font-display mx-7 hover:underline cursor-pointer"
         >
-          HeadPhones
+          Headphones
         </h1>
-        <h1 className="text-base text-black font-display mx-7 hover:underline cursor-pointer">
-          Sale
+        <h1
+          onClick={() => {
+            navigate("/earphones");
+          }}
+          className="text-base text-black font-display mx-7 hover:underline cursor-pointer"
+        >
+          Earphones
         </h1>
       </div>
     </>

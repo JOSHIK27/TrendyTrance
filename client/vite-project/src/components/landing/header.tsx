@@ -101,15 +101,20 @@ function Header() {
           }}
           className="text-base text-black font-display mx-7 hover:underline cursor-pointer"
         >
-          HeadPhones
+          Headphones
         </h1>
-        <h1 className="text-base text-black font-display mx-7 hover:underline cursor-pointer">
-          Sale
+        <h1
+          onClick={() => {
+            navigate("/earphones");
+          }}
+          className="text-base text-black font-display mx-7 hover:underline cursor-pointer"
+        >
+          Earphones
         </h1>
       </div>
       <div className="relative">
         <img src={coverpic}></img>
-        <button className="bg-yellow rounded-full w-40 h-14 font-display font-bold absolute top-1/3 right-[600px] hover:scale-125 duration-300">
+        <button className="bg-yellow rounded-full w-40 h-14 font-display font-bold absolute top-1/3 right-1/2 hover:scale-125 duration-300">
           SHOP NOW
         </button>
       </div>

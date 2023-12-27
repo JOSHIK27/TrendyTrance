@@ -29,7 +29,6 @@ export default function Women() {
       <Nav />
       <div className="flex flex-wrap justify-center">
         {women.map((x) => {
-          console.log(x);
           return (
             <div className="mx-16">
               <img src={x}></img>
@@ -55,6 +54,9 @@ export default function Women() {
                       method: "post",
                       headers: {
                         "Content-Type": "application/json",
+                        authorization: `Bearer ${localStorage.getItem(
+                          "token"
+                        )}`,
                       },
                       body: JSON.stringify({ id: uId, imageUrl: x }),
                     })
@@ -62,6 +64,10 @@ export default function Women() {
                         return x.json();
                       })
                       .then((y) => {
+                        if (y.auth) {
+                          alert("UNAUTHORISED");
+                          return;
+                        }
                         console.log(y);
                         setCheckOutValue(y.products);
                         navigate("/checkout");
