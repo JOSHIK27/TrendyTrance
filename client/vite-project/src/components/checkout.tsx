@@ -4,8 +4,10 @@ import { useNavigate } from "react-router-dom";
 import { userId } from "../store/states.tsx";
 export default function CheckOut() {
   const [items, setItems] = useRecoilState(checkoutAtom);
+  console.log(items);
   const [id, setId] = useRecoilState(userId);
   const Navigate = useNavigate();
+  if (window.localStorage.getItem("token") == "") return <h1>Unauthorised</h1>;
   return (
     <div>
       <div className="flex justify-between">

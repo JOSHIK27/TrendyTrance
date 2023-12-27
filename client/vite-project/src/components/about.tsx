@@ -23,7 +23,12 @@ export default function About() {
           <h1 className="text-base text-white font-display mx-7 hover:underline cursor-pointer">
             About
           </h1>
-          <h1 className="text-base text-white font-display mx-7 hover:underline cursor-pointer">
+          <h1
+            onClick={() => {
+              navigate("/contact");
+            }}
+            className="text-base text-white font-display mx-7 hover:underline cursor-pointer"
+          >
             Contact
           </h1>
         </div>

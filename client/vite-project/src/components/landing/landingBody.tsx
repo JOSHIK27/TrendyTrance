@@ -1,9 +1,9 @@
 import women from "../../images/women/product_2.png";
 import men from "../../images/men/product_21.png";
 import kid from "../../images/kids/product_28.png";
-import earphone from "../../images/earphones/earphones_b_3.webp";
-import headphone from "../../images/headphones/headphones_b_4.webp";
-import watch from "../../images/watches/watch_3.webp";
+import earphone from "../../images/earphones/earphones_b_3.png";
+import headphone from "../../images/headphones/headphones_b_4.png";
+import watch from "../../images/watches/watch_3.png";
 import Review from "../subComponents/reviewCard";
 function LandingBody() {
   return (

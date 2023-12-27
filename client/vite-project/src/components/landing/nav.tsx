@@ -24,7 +24,12 @@ export default function Nav() {
           >
             About
           </h1>
-          <h1 className="text-base text-white font-display mx-7 hover:underline cursor-pointer">
+          <h1
+            onClick={() => {
+              navigate("/contact");
+            }}
+            className="text-base text-white font-display mx-7 hover:underline cursor-pointer"
+          >
             Contact
           </h1>
         </div>
@@ -90,8 +95,13 @@ export default function Nav() {
         >
           Kids
         </h1>
-        <h1 className="text-base text-black font-display mx-7 hover:underline cursor-pointer">
-          Brands
+        <h1
+          onClick={() => {
+            navigate("/headphones");
+          }}
+          className="text-base text-black font-display mx-7 hover:underline cursor-pointer"
+        >
+          HeadPhones
         </h1>
         <h1 className="text-base text-black font-display mx-7 hover:underline cursor-pointer">
           Sale
