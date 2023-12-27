@@ -6,7 +6,6 @@ import { useEffect } from "react";
 export default function CheckOut() {
   const [items, setItems] = useRecoilState(checkoutAtom);
   const [id, setId] = useRecoilState(userId);
-  console.log(id);
   const Navigate = useNavigate();
   if (window.localStorage.getItem("token") == null)
     return <h1>Unauthorised</h1>;
