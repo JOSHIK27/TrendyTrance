@@ -19,7 +19,6 @@ import { userId } from "../../store/states.tsx";
 
 export default function Women() {
   const login = useRecoilValue(isLoggedIn);
-  const checkOutValue = useRecoilValue(checkoutAtom);
   const navigate = useNavigate();
   const uId = useRecoilValue(userId);
   const setCheckOutValue = useSetRecoilState(checkoutAtom);

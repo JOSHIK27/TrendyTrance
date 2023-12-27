@@ -13,15 +13,12 @@ import m10 from "../../images/men/product_22.png";
 import m11 from "../../images/men/product_23.png";
 import m12 from "../../images/men/product_24.png";
 import { userId } from "../../store/states.tsx";
-import { checkoutAtom } from "../../store/states.tsx";
 import { isLoggedIn } from "../../store/states.tsx";
 import Nav from "../landing/nav.tsx";
 export default function Men() {
-  const checkOutValue = useRecoilValue(checkoutAtom);
   const login = useRecoilValue(isLoggedIn);
   const uId = useRecoilValue(userId);
   const navigate = useNavigate();
-  const setCheckOutValue = useSetRecoilState(checkoutAtom);
   const arr = [m1, m2, m3, m4, m5, m6, m7, m8, m9, m10, m11, m12];
 
   return (
