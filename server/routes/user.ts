@@ -10,6 +10,13 @@ const loginSchema = z.object({
   password: z.string().min(1).max(10).trim()
 })
 
+userRouter.post("/", (req, res) => {
+  const id = req.body.id;
+  users.findById(id).then((x) => {
+    res.json(x);
+  })
+})
+
 userRouter.post("/signup", createJwt, (req, res) => {
   const { user, password } = req.body;
   const output = loginSchema.safeParse(req.body);
@@ -48,8 +55,11 @@ userRouter.post("/test", authJwt, (req, res) => {
   res.send("authentication success");
 });
 
+
+
 userRouter.post("/cart",authJwt, (req, res) => {
   const {id, imageUrl} = req.body;
+  console.log(id, imageUrl);
   users.findById(id).then((resp) => {
     const products = resp?.products
     let check = false;

@@ -52,7 +52,6 @@ export default function Signup() {
                     alert("ENTER A VALID INPUT");
                   } else {
                     window.localStorage.setItem("token", token);
-                    console.log(token);
                     alert("added to database");
                   }
                 });

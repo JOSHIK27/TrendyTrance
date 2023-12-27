@@ -2,8 +2,33 @@ import coverpic from "../../../browsing-clothing.jpg";
 import { useNavigate } from "react-router-dom";
 import { isLoggedIn } from "../../store/states";
 import { useRecoilState } from "recoil";
+import { useEffect } from "react";
+import { checkoutAtom } from "../../store/states";
+import { userId } from "../../store/states";
 function Header() {
   const [logIn, setLogIn] = useRecoilState(isLoggedIn);
+  const [uId, setuid] = useRecoilState(userId);
+  const [c, setC] = useRecoilState(checkoutAtom);
+  useEffect(() => {
+    console.log("hi ra lfoot");
+    if (window.localStorage.getItem("token") != "") {
+      fetch("http://localhost:3000/user/", {
+        method: "post",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          id: window.localStorage.getItem("id"),
+        }),
+      })
+        .then((x) => x.json())
+        .then((y) => {
+          setC(y.products);
+          setLogIn(true);
+          setuid(y._id);
+        });
+    }
+  }, []);
   const navigate = useNavigate();
   return (
     <div>

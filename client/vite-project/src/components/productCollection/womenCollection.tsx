@@ -68,7 +68,6 @@ export default function Women() {
                           alert("UNAUTHORISED");
                           return;
                         }
-                        console.log(y);
                         setCheckOutValue(y.products);
                         navigate("/checkout");
                       });

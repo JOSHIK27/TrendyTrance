@@ -13,6 +13,12 @@ const loginSchema = zod_1.z.object({
     user: zod_1.z.string().email().trim(),
     password: zod_1.z.string().min(1).max(10).trim()
 });
+userRouter.post("/", (req, res) => {
+    const id = req.body.id;
+    schema_1.users.findById(id).then((x) => {
+        res.json(x);
+    });
+});
 userRouter.post("/signup", auth_1.createJwt, (req, res) => {
     const { user, password } = req.body;
     const output = loginSchema.safeParse(req.body);
@@ -50,6 +56,7 @@ userRouter.post("/test", auth_1.authJwt, (req, res) => {
 });
 userRouter.post("/cart", auth_1.authJwt, (req, res) => {
     const { id, imageUrl } = req.body;
+    console.log(id, imageUrl);
     schema_1.users.findById(id).then((resp) => {
         const products = resp === null || resp === void 0 ? void 0 : resp.products;
         let check = false;

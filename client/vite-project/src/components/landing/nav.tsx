@@ -1,9 +1,15 @@
 import { useNavigate } from "react-router-dom";
 import { useRecoilState } from "recoil";
 import { isLoggedIn } from "../../store/states";
+import { useEffect } from "react";
 export default function Nav() {
   const navigate = useNavigate();
   const [logIn, setLogIn] = useRecoilState(isLoggedIn);
+  useEffect(() => {
+    if (window.localStorage.getItem("token")) {
+      setLogIn(true);
+    }
+  }, []);
   return (
     <>
       <div className="bg-temp h-10 max-w-[100%] flex justify-between items-center">

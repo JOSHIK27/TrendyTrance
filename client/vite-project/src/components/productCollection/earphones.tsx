@@ -67,7 +67,6 @@ export default function Earphones() {
                           alert("UNAUTHORISED");
                           return;
                         }
-                        console.log(y);
                         setCheckOutValue(y.products);
                         navigate("/checkout");
                       });
