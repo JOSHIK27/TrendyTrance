@@ -5,12 +5,17 @@ import { useRecoilState } from "recoil";
 import { useEffect } from "react";
 import { checkoutAtom } from "../../store/states";
 import { userId } from "../../store/states";
+import { useSpring, animated } from "@react-spring/web";
 function Header() {
+  const springs = useSpring({
+    from: { opacity: 0 },
+    to: { opacity: 1 },
+    config: { duration: 1000 },
+  });
   const [logIn, setLogIn] = useRecoilState(isLoggedIn);
   const [uId, setuid] = useRecoilState(userId);
   const [c, setC] = useRecoilState(checkoutAtom);
   useEffect(() => {
-    console.log("hi ra lfoot");
     if (window.localStorage.getItem("token") != "") {
       fetch("http://localhost:3000/user/", {
         method: "post",
@@ -138,7 +143,7 @@ function Header() {
         </h1>
       </div>
       <div className="relative">
-        <img src={coverpic}></img>
+        <animated.img style={springs} src={coverpic}></animated.img>
         <button className="bg-yellow rounded-full w-40 h-14 font-display font-bold absolute top-1/3 right-1/2 hover:scale-125 duration-300">
           SHOP NOW
         </button>

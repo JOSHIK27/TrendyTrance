@@ -5,7 +5,21 @@ import earphone from "../../images/earphones/earphones_b_3.png";
 import headphone from "../../images/headphones/headphones_b_4.png";
 import watch from "../../images/watches/watch_3.png";
 import Review from "../subComponents/reviewCard";
+import { useSpring, animated } from "@react-spring/web";
+import { useInView } from "@react-spring/web";
 function LandingBody() {
+  const [ref, springs] = useInView(() => ({
+    from: {
+      opacity: 0,
+      y: 100,
+    },
+    to: {
+      opacity: 1,
+      y: 0,
+    },
+    config: { duration: 1000 },
+  }));
+
   return (
     <div>
       <div className="flex justify-center mt-20">
@@ -13,10 +27,14 @@ function LandingBody() {
           Discover Your Style - Where Fashion Meets Elegance
         </h1>
       </div>
-      <div className="flex flex-wrap justify-evenly my-20 sm:max-lg:flex-wrap">
+      <animated.div
+        ref={ref}
+        style={springs}
+        className="flex flex-wrap justify-evenly my-20 sm:max-lg:flex-wrap"
+      >
         <div className="flex flex-col">
           <img className="rounded-lg" src={women}></img>
-          <h1 className="text-center text-[20px] mt-[10px]">Explore</h1>
+          <h1 className="text-center text-[20px] mt-[10px]">Explore</h1>{" "}
         </div>
 
         <div>
@@ -27,13 +45,15 @@ function LandingBody() {
           <img className="rounded-lg" src={kid}></img>
           <h1 className="text-center text-[20px] mt-[10px]">Explore</h1>
         </div>
-      </div>
+      </animated.div>
+
       <div className="flex flex-col items-center justify-center sm:flex-col lg:flex-row">
         <img className="h-[600px] w-[600px]" src={earphone}></img>
         <h1 className="mr-8 font-display text-[40px] italic">
           Experience Sound in Style: Unleash the Beat of Innovation
         </h1>
       </div>
+
       <div className="flex flex-row-reverse items-center sm: flex-col lg:flex-row-reverse">
         <img className="h-[600px] w-[600px]" src={headphone}></img>
         <h1 className="ml-40 font-display text-[40px] italic">
