@@ -1,6 +1,25 @@
+import { useSpring, animated } from "@react-spring/web";
+import { useInView } from "@react-spring/web";
+
 export default function Review() {
+  const [ref, springs] = useInView(() => ({
+    from: {
+      opacity: 0,
+      y: 100,
+    },
+    to: {
+      opacity: 1,
+      y: 0,
+    },
+    config: { duration: 1000 },
+  }));
+
   return (
-    <div className="flex justify-center flex-wrap">
+    <animated.div
+      ref={ref}
+      style={springs}
+      className="flex justify-center flex-wrap"
+    >
       <div className="h-[420px] w-[300px] bg-white m-8 rounded-xl">
         <img
           className="rounded-full h-32 w-32 ml-24 mt-8"
@@ -43,6 +62,6 @@ export default function Review() {
           coming back.”
         </p>
       </div>
-    </div>
+    </animated.div>
   );
 }
