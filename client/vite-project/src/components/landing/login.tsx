@@ -16,9 +16,9 @@ export default function Login() {
   return (
     <>
       <Nav />
-      <div className="flex justify-center">
+      <div className="flex flex-col lg:flex-row justify-center ">
         <img src={temp}></img>
-        <div className="mt-44 relative">
+        <div className="mt-[0px] ml-40 lg:mt-44 lg:ml-[0px] relative">
           <div className="flex flex-col">
             <div className="mb-2 flex flex-col">
               <input
