@@ -17,7 +17,7 @@ function Header() {
   const [c, setC] = useRecoilState(checkoutAtom);
   useEffect(() => {
     if (window.localStorage.getItem("token") != "") {
-      fetch("http://localhost:3000/user/", {
+      fetch(`${import.meta.env.VITE_SERVER}user/`, {
         method: "post",
         headers: {
           "Content-Type": "application/json",

@@ -41,7 +41,7 @@ export default function Login() {
           </div>
           <button
             onClick={() => {
-              fetch("http://localhost:3000/user/login", {
+              fetch(`${import.meta.env.VITE_SERVER}user/login`, {
                 method: "post",
                 headers: {
                   "Content-Type": "application/json",

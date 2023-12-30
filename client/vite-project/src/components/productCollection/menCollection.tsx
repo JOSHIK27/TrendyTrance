@@ -47,7 +47,7 @@ export default function Men() {
                       alert("Please Login");
                       return;
                     }
-                    fetch("http://localhost:3000/user/cart", {
+                    fetch(`${import.meta.env.VITE_SERVER}user/cart`, {
                       method: "post",
                       headers: {
                         "Content-Type": "application/json",

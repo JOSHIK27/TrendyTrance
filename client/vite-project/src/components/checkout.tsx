@@ -7,10 +7,12 @@ export default function CheckOut() {
   const [items, setItems] = useRecoilState(checkoutAtom);
   const [id, setId] = useRecoilState(userId);
   const Navigate = useNavigate();
+
   if (window.localStorage.getItem("token") == null)
     return <h1>Unauthorised</h1>;
   useEffect(() => {
-    fetch("http://localhost:3000/user/", {
+
+    fetch(`${import.meta.env.VITE_SERVER}user`, {
       method: "post",
       headers: {
         "Content-Type": "application/json",
@@ -64,7 +66,7 @@ export default function CheckOut() {
                 <div className="flex font-atak pr-80 font-normal text-[14px] leading-3 pt-16">
                   <div
                     onClick={() => {
-                      fetch("http://localhost:3000/user/decrement", {
+                      fetch(`${import.meta.env.VITE_SERVER}user/decrement`, {
                         method: "post",
                         headers: {
                           "Content-Type": "application/json",
@@ -89,7 +91,7 @@ export default function CheckOut() {
                   <div
                     className="ml-2 cursor-pointer"
                     onClick={() => {
-                      fetch("http://localhost:3000/user/increment", {
+                      fetch(`${import.meta.env.VITE_SERVER}user/increment`, {
                         method: "post",
                         headers: {
                           "Content-Type": "application/json",

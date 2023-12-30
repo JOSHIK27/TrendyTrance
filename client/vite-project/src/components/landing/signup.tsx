@@ -34,7 +34,7 @@ export default function Signup() {
           </div>
           <button
             onClick={() => {
-              fetch("http://localhost:3000/user/signup", {
+              fetch(`${import.meta.env.VITE_SERVER}user/signup`, {
                 method: "post",
                 headers: {
                   "Content-Type": "application/json",

@@ -13,6 +13,8 @@ import About from "./components/about.tsx";
 import HeadPhones from "./components/productCollection/headphonesCollection.tsx";
 import Contact from "./components/contact.tsx";
 import Earphones from "./components/productCollection/earphones.tsx";
+
+
 function App() {
   return (
     <RecoilRoot>
