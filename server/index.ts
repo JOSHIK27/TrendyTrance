@@ -5,7 +5,11 @@ import { users } from "./db/schema";
 import cors from "cors";
 const app = express();
 
-app.use(cors());
+app.use(cors({
+  origin: 'https://trendy-trance.vercel.app/,
+  optionsSuccessStatus: 200
+}));
+
 
 app.use("/user", userRouter);
 
