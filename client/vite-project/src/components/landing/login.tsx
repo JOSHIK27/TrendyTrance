@@ -41,7 +41,7 @@ export default function Login() {
           </div>
           <button
             onClick={() => {
-              fetch(`${import.meta.env.VITE_SERVER}user/login`, {
+              fetch('http://ec2-16-171-19-8.eu-north-1.compute.amazonaws.com:3000/user/login', {
                 method: "post",
                 headers: {
                   "Content-Type": "application/json",
