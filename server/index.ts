@@ -6,7 +6,7 @@ import cors from "cors";
 const app = express();
 
 app.use(cors({
-  origin: 'https://trendy-trance.vercel.app/,
+  origin: 'https://trendy-trance.vercel.app/',
   optionsSuccessStatus: 200
 }));
 
