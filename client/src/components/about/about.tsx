@@ -67,7 +67,7 @@ export default function About() {
       <div className="bg-wave h-100 flex-col justify-center">
         <div className="text-4xl pt-10 font-medium text-center">About Us</div>
         <div className="text-2xl font-normal mt-10 flex justify-center">
-          <p className="w-[800px] pt-4">
+          <p className="w-[800px] p-4">
             Welcome to TRENDYTRANCE! At TRENDYTRANCE, we are passionate about
             providing high-quality products and excellent service to our valued
             customers. Our commitment is to create an exceptional shopping
@@ -86,7 +86,7 @@ export default function About() {
           d="M0,160L48,170.7C96,181,192,203,288,192C384,181,480,139,576,106.7C672,75,768,53,864,69.3C960,85,1056,139,1152,160C1248,181,1344,171,1392,165.3L1440,160L1440,0L1392,0C1344,0,1248,0,1152,0C1056,0,960,0,864,0C768,0,672,0,576,0C480,0,384,0,288,0C192,0,96,0,48,0L0,0Z"
         ></path>
       </svg>
-      <div className="flex justify-center">
+      <div className="flex flex-col sm:flex-row  justify-center flex-wrap">
         <img src={aim} width={450} height={450}></img>
         <div className="ml-40 w-80">
           <div className="text-4xl">Our Mission</div>

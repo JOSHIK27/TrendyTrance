@@ -48,7 +48,7 @@ export default function Kids() {
                       alert("Please Login");
                       return;
                     }
-                    fetch(`${import.meta.env.VITE_SERVER}user/cart`, {
+                    fetch(`http://localhost:3000/user/cart`, {
                       method: "post",
                       headers: {
                         "Content-Type": "application/json",

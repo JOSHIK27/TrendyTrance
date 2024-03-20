@@ -5,7 +5,7 @@ import earphone from "../../images/earphones/earphones_b_3.png";
 import headphone from "../../images/headphones/headphones_b_4.png";
 import watch from "../../images/watches/watch_3.png";
 import Review from "../subComponents/reviewCard";
-import { useSpring, animated } from "@react-spring/web";
+import { animated } from "@react-spring/web";
 import { useInView } from "@react-spring/web";
 function LandingBody() {
   const [ref, springs] = useInView(() => ({

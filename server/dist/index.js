@@ -13,4 +13,4 @@ app.use("/user", user_1.default);
 app.listen(3000, () => {
     console.log("listening");
 });
-mongoose_1.default.connect("mongodb+srv://JOSHIK:uVMVjfzYFR0ti1C5@cluster0.yg4wtr8.mongodb.net", { dbName: 'TRENDYTRANCE' });
+mongoose_1.default.connect("mongodb+srv://JOSHIK:uVMVjfzYFR0ti1C5@cluster0.yg4wtr8.mongodb.net", { dbName: "TRENDYTRANCE" });

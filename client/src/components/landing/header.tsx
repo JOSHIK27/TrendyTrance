@@ -1,4 +1,4 @@
-import coverpic from "../../../browsing-clothing.jpg";
+import coverpic from "../../ui/illustrations/browsing-clothing.jpg";
 import { useNavigate } from "react-router-dom";
 import { isLoggedIn } from "../../store/states";
 import { useRecoilState } from "recoil";
@@ -12,12 +12,13 @@ function Header() {
     to: { opacity: 1 },
     config: { duration: 1000 },
   });
+
   const [logIn, setLogIn] = useRecoilState(isLoggedIn);
   const [uId, setuid] = useRecoilState(userId);
   const [c, setC] = useRecoilState(checkoutAtom);
   useEffect(() => {
     if (window.localStorage.getItem("token") != "") {
-      fetch(`${import.meta.env.VITE_SERVER}user/`, {
+      fetch(`http://localhost:3000/user/`, {
         method: "post",
         headers: {
           "Content-Type": "application/json",
