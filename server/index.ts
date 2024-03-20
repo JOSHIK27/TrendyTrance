@@ -1,7 +1,6 @@
 import express from "express";
 import userRouter from "./routes/user";
-import mongoose, { mongo } from "mongoose";
-import { users } from "./db/schema";
+import mongoose from "mongoose";
 import cors from "cors";
 const app = express();
 
@@ -14,5 +13,6 @@ app.listen(3000, () => {
 });
 
 mongoose.connect(
-  "mongodb+srv://JOSHIK:uVMVjfzYFR0ti1C5@cluster0.yg4wtr8.mongodb.net"
-,{dbName: 'TRENDYTRANCE'});
+  "mongodb+srv://JOSHIK:uVMVjfzYFR0ti1C5@cluster0.yg4wtr8.mongodb.net",
+  { dbName: "TRENDYTRANCE" }
+);
