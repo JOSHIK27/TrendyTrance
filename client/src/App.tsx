@@ -8,12 +8,11 @@ import { RecoilRoot } from "recoil";
 import Landing from "./components/landing.tsx";
 import Kids from "./components/productCollection/kidsCollection.tsx";
 import Women from "./components/productCollection/womenCollection.tsx";
-import CheckOut from "./components/checkout.tsx";
-import About from "./components/about.tsx";
+import CheckOut from "./components/checkout/checkout.tsx";
+import About from "./components/about/about.tsx";
 import HeadPhones from "./components/productCollection/headphonesCollection.tsx";
 import Contact from "./components/contact.tsx";
 import Earphones from "./components/productCollection/earphones.tsx";
-
 
 function App() {
   return (
