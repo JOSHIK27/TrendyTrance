@@ -1,4 +1,4 @@
-import { useRecoilValue, useSetRecoilState } from "recoil";
+import { useRecoilValue } from "recoil";
 import { useNavigate } from "react-router-dom";
 import m1 from "../../images/men/product_13.png";
 import m2 from "../../images/men/product_14.png";
@@ -68,7 +68,7 @@ export default function Men() {
                         navigate("/checkout");
                       });
                   }}
-                  className="bg-temp text-white mt-6 w-[350px] rounded-full w-40 h-14 font-display font-bold hover:bg-temp2"
+                  className="bg-temp text-white mt-6 w-[350px] rounded-full h-14 font-display font-bold hover:bg-temp2"
                 >
                   Add to cart
                 </button>

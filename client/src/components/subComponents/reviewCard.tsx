@@ -1,4 +1,4 @@
-import { useSpring, animated } from "@react-spring/web";
+import { animated } from "@react-spring/web";
 import { useInView } from "@react-spring/web";
 
 export default function Review() {

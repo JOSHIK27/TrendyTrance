@@ -71,7 +71,7 @@ export default function HeadPhones() {
                         navigate("/checkout");
                       });
                   }}
-                  className="bg-temp text-white mt-6 w-[350px] rounded-full w-40 h-14 font-display font-bold hover:bg-temp2"
+                  className="bg-temp text-white mt-6 w-[350px] rounded-full h-14 font-display font-bold hover:bg-temp2"
                 >
                   Add to cart
                 </button>
