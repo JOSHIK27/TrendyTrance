@@ -18,7 +18,7 @@ function Header() {
   const [, setC] = useRecoilState(checkoutAtom);
   useEffect(() => {
     if (window.localStorage.getItem("token") != "") {
-      fetch(`http://ec2-13-49-228-98.eu-north-1.compute.amazonaws.com/user/`, {
+      fetch(`https://ec2-13-49-228-98.eu-north-1.compute.amazonaws.com/user/`, {
         method: "post",
         headers: {
           "Content-Type": "application/json",
