@@ -14,8 +14,8 @@ function Header() {
   });
 
   const [logIn, setLogIn] = useRecoilState(isLoggedIn);
-  const [uId, setuid] = useRecoilState(userId);
-  const [c, setC] = useRecoilState(checkoutAtom);
+  const [, setuid] = useRecoilState(userId);
+  const [, setC] = useRecoilState(checkoutAtom);
   useEffect(() => {
     if (window.localStorage.getItem("token") != "") {
       fetch(`http://localhost:3000/user/`, {

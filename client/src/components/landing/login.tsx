@@ -8,10 +8,10 @@ import { userId } from "../../store/states";
 import { checkoutAtom } from "../../store/states";
 export default function Login() {
   const [user, setUser] = useRecoilState(loginUserAtom);
-  const [checkout, setCheckOut] = useRecoilState(checkoutAtom);
+  const [, setCheckOut] = useRecoilState(checkoutAtom);
   const [password, setPassword] = useRecoilState(loginPasswordAtom);
-  const [login, isLogin] = useRecoilState(isLoggedIn);
-  const [id, setId] = useRecoilState(userId);
+  const [, isLogin] = useRecoilState(isLoggedIn);
+  const [, setId] = useRecoilState(userId);
   const navigate = useNavigate();
   return (
     <>

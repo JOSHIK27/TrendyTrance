@@ -54,13 +54,13 @@ function LandingBody() {
         </h1>
       </div>
 
-      <div className="flex flex-row-reverse items-center sm: flex-col lg:flex-row-reverse">
+      <div className="flex flex-row-reverse items-center lg:flex-row-reverse">
         <img className="h-[600px] w-[600px]" src={headphone}></img>
         <h1 className="ml-40 font-display text-[40px] italic">
           Unplug and Elevate Your Audio Experience
         </h1>
       </div>
-      <div className="flex flex-col items-center justify-center sm: flex-col lg:flex-row">
+      <div className="flex flex-col items-center justify-center lg:flex-row">
         <img className="h-[600px] w-[600px]" src={watch}></img>
         <h1 className="mr-8 font-display text-[40px] italic">
           Timeless Elegance, Right at Your Wrist

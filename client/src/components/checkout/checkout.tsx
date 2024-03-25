@@ -5,7 +5,7 @@ import { userId } from "../../store/states.tsx";
 import { useEffect } from "react";
 export default function CheckOut() {
   const [items, setItems] = useRecoilState(checkoutAtom);
-  const [id, setId] = useRecoilState(userId);
+  const [id] = useRecoilState(userId);
   const Navigate = useNavigate();
 
   if (window.localStorage.getItem("token") == null)
@@ -53,7 +53,7 @@ export default function CheckOut() {
       </div>
       <div className="h-px pl-20 border-[0.1px] pr-20"></div>
       <div>
-        {items.map((x) => {
+        {items.map((x: { imageUrl: string; itemCount: string }) => {
           if (x.imageUrl == "") return null;
           return (
             <div className="flex justify-between">
@@ -112,7 +112,7 @@ export default function CheckOut() {
                   </div>
                 </div>
                 <div className="ont-atak pr-20 font-normal text-[16px] leading-3 pt-16">
-                  {x.itemCount * 20}£
+                  {parseInt(x.itemCount) * 20}£
                 </div>
               </div>
             </div>
