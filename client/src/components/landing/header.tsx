@@ -18,15 +18,18 @@ export default function Header() {
   const [, setC] = useRecoilState(checkoutAtom);
   useEffect(() => {
     if (window.localStorage.getItem("token") != "") {
-      fetch(`https://ec2-13-49-228-98.eu-north-1.compute.amazonaws.com/user/`, {
-        method: "post",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          id: window.localStorage.getItem("id"),
-        }),
-      })
+      fetch(
+        `https://ec2-13-49-228-98.eu-north-1.compute.amazonaws.com:3000/user/`,
+        {
+          method: "post",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            id: window.localStorage.getItem("id"),
+          }),
+        }
+      )
         .then((x) => x.json())
         .then((y) => {
           setC(y.products);
