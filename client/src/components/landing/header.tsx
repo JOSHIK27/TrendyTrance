@@ -6,7 +6,7 @@ import { useEffect } from "react";
 import { checkoutAtom } from "../../store/states";
 import { userId } from "../../store/states";
 import { useSpring, animated } from "@react-spring/web";
-function Header() {
+export default function Header() {
   const springs = useSpring({
     from: { opacity: 0 },
     to: { opacity: 1 },
@@ -152,5 +152,3 @@ function Header() {
     </div>
   );
 }
-
-export default Header;
