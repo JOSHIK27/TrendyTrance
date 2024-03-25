@@ -42,7 +42,7 @@ export default function Login() {
           <button
             onClick={() => {
               fetch(
-                "http://ec2-13-49-228-98.eu-north-1.compute.amazonaws.com:3000/user/login",
+                "https://ec2-13-49-228-98.eu-north-1.compute.amazonaws.com:3000/user/login",
                 {
                   method: "post",
                   headers: {
