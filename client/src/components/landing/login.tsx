@@ -41,16 +41,19 @@ export default function Login() {
           </div>
           <button
             onClick={() => {
-              fetch("http://localhost:3000/user/login", {
-                method: "post",
-                headers: {
-                  "Content-Type": "application/json",
-                },
-                body: JSON.stringify({
-                  user: user,
-                  password: password,
-                }),
-              })
+              fetch(
+                "http://ec2-13-49-228-98.eu-north-1.compute.amazonaws.com/user/login",
+                {
+                  method: "post",
+                  headers: {
+                    "Content-Type": "application/json",
+                  },
+                  body: JSON.stringify({
+                    user: user,
+                    password: password,
+                  }),
+                }
+              )
                 .then((resp) => {
                   return resp.json();
                 })
