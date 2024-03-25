@@ -19,7 +19,7 @@ export default function Header() {
   useEffect(() => {
     if (window.localStorage.getItem("token") != "") {
       fetch(
-        `https://ec2-13-49-228-98.eu-north-1.compute.amazonaws.com:3000/user/`,
+        `http://ec2-13-49-228-98.eu-north-1.compute.amazonaws.com:3000/user/`,
         {
           method: "post",
           headers: {
